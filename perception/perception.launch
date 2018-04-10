@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+  <include file="$(find darknet_ros)/launch/darknet_ros.launch" />
+
+  <node pkg="perception" type="perception_read_image_node" name="perception_read_image_node" output="screen" />
+
+  <node pkg="perception" type="perception_tracker_node" name="perception_tracker_node" output="screen" />
+</launch>
