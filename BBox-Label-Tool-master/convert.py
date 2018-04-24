@@ -12,7 +12,9 @@ import os
 from os import walk, getcwd
 from PIL import Image
 
-classes = ["001"]
+d_set = "004"
+
+classes = [d_set]
 
 def convert(size, box):
     dw = 1./size[0]
@@ -31,10 +33,10 @@ def convert(size, box):
 """-------------------------------------------------------------------""" 
 
 """ Configure Paths"""   
-mypath = "C:/AAA/ADEPT2018/BBox-Label-Tool-master/Labels/001/"
-outpath = "C:/AAA/ADEPT2018/BBox-Label-Tool-master/Labels/post_001/"
+mypath = "Labels/"+d_set+'/'
+outpath = "Labels/post_"+d_set+"/"
 
-cls = "001"
+cls = d_set
 if cls not in classes:
     exit(0)
 cls_id = classes.index(cls)
@@ -83,7 +85,7 @@ for txt_name in txt_name_list:
             ymax = elems[4]
             cls_id = elems[0]
             #
-            img_path = str('%s/images/%s/%s.JPEG'%(wd, cls, os.path.splitext(txt_name)[0]))
+            img_path = str('%s/Images/%s/%s.jpeg'%(wd, cls, os.path.splitext(txt_name)[0]))
             #t = magic.from_file(img_path)
             #wh= re.search('(\d+) x (\d+)', t).groups()
             im=Image.open(img_path)
@@ -106,6 +108,6 @@ for txt_name in txt_name_list:
 
     """ Save those images with bb into list"""
     if(ct != 0):
-        list_file.write('%s/images/%s/%s.JPEG\n'%(wd, cls, os.path.splitext(txt_name)[0]))
+        list_file.write('%s/Images/%s/%s.jpeg\n'%(wd, cls, os.path.splitext(txt_name)[0]))
                 
 list_file.close()       
