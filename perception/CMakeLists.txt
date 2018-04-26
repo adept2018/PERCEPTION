@@ -27,7 +27,7 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME}_read_image_node src/read_image_node.cpp)
-add_executable(${PROJECT_NAME}_tracker_node src/tracker_node.cpp)
+add_executable(${PROJECT_NAME}_tracker_node src/tracker_node.cpp src/WorldPositioner.cpp)
 
 add_dependencies(${PROJECT_NAME}_tracker_node perception_msgs_generate_messages_cpp)
 add_dependencies(${PROJECT_NAME}_tracker_node darknet_ros_msgs_generate_messages_cpp)
